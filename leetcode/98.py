@@ -28,6 +28,6 @@ class Solution:
         if node is None:
             return left_nodes_list
         left_nodes_list.append(node.val)
-        self.addRightNodes(node.left, left_nodes_list)
-        self.addRightNodes(node.right, left_nodes_list)
+        self.addLeftNodes(node.left, left_nodes_list)
+        self.addLeftNodes(node.right, left_nodes_list)
         return  left_nodes_list 
