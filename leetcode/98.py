@@ -31,3 +31,14 @@ class Solution:
         self.addLeftNodes(node.left, left_nodes_list)
         self.addLeftNodes(node.right, left_nodes_list)
         return  left_nodes_list 
+
+
+    def optimizedIsValidBST(self, root: Optional[TreeNode], minVal=float("-inf"), maxVal=float("inf")) -> bool:
+        if root is None:
+            return True
+        print(minVal, root.val, maxVal)
+        
+        if not (minVal < root.val < maxVal):
+            return False
+    
+        return self.optimizedIsValidBST(root.left, minVal, min(maxVal, root.val)) and self.optimizedIsValidBST(root.right, min(maxVal, root.val), maxVal)
